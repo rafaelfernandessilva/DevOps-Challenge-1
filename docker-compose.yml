@@ -8,6 +8,13 @@ services:
 
   web:
     image: python-test:1.1
+    environment:
+        - ENVIRONMENT=DEV
+        - HOST=localhost
+        - PORT=8000
+        - REDIS_HOST=redis.local
+        - REDIS_PORT=6379
+        - REDIS_DB=0
     ports:
       - "8000:8000"
     depends_on:
