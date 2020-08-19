@@ -3,4 +3,4 @@
 set -xe
 pwd
 
-python tests/test.py
+python3.7 tests/test.py
