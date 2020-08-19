@@ -3,6 +3,9 @@ version: '3'
 services:
   redis:
     image: redis:5.0.9
+    networks:
+      static-network:
+        ipv4_address: 172.18.128.2
 
   web:
     image: python-test:1.2
@@ -10,12 +13,16 @@ services:
         - ENVIRONMENT=DEV
         - HOST=localhost
         - PORT=8000
-        - REDIS_HOST=redis.local
+        - REDIS_HOST=172.18.128.2
         - REDIS_PORT=6379
         - REDIS_DB=0
     ports:
       - "8000:8000"
     depends_on:
       - redis
-    links:
-      - "redis:redis.local"
+
+networks:
+   static-network:
+     ipam:
+       config:
+         - subnet:  172.18.0.0/16
