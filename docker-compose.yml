@@ -16,6 +16,9 @@ services:
         - REDIS_HOST=172.18.128.2
         - REDIS_PORT=6379
         - REDIS_DB=0
+    networks:
+      static-network:
+        ipv4_address: 172.18.128.3
     ports:
       - "8000:8000"
     depends_on:
