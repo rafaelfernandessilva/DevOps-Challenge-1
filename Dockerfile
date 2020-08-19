@@ -17,6 +17,7 @@ FROM python:3.7.7-alpine3.11
 # Copy content abd create directories
 # -----------------------------------------------------------------------------
 
+RUN mkdir /opt/test/
 COPY . /opt/test/
 WORKDIR /opt/test/
 
