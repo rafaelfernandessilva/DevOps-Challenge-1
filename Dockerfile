@@ -54,7 +54,7 @@ RUN pip3 install -r requirements.txt
 # Set ports
 # -----------------------------------------------------------------------------
 
-EXPOSE 3000
-#CMD python hello.py
+EXPOSE 8000
+CMD python hello.py
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]

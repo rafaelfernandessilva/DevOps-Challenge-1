@@ -1,10 +1,8 @@
 version: '3'
-  
+
 services:
   redis:
     image: redis:5.0.9
-    ports:
-      - "6379:6379"
 
   web:
     image: python-test:1.1
