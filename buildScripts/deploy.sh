@@ -10,4 +10,4 @@ echo $TAG
 sed -i "s/python-test:.*/python-test:"$TAG"/" docker-compose.yml
 cat docker-compose.yml
 
-#docker-compose up -d --build
+docker-compose up -d --build
