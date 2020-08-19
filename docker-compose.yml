@@ -5,7 +5,7 @@ services:
     image: redis:5.0.9
 
   web:
-    image: python-test:1.1
+    image: python-test:1.2
     environment:
         - ENVIRONMENT=DEV
         - HOST=localhost
