@@ -1,24 +1,25 @@
-version: "3"
+version: '3'
+
 services:
-  web: 
-    build: .
+  redis:
+    image: redis:5.0.9
+    networks:
+      - app-python
+
+  web:
+    image: python-test:TAG
+    environment:
+        - ENVIRONMENT=DEV
+        - HOST=localhost
+        - PORT=8000
+         REDIS_PORT=6379
+        - REDIS_DB=0
+    networks:
+      - app-python
     ports:
       - "8000:8000"
-    environment:
-      - ENVIRONMENT=DEV
-       - HOST=localhost
-       - PORT=8000
-       - REDIS_PORT=6379
-       - REDIS_DB=0
-    networks:
-      - app-python
-  redis:
-    image: redis
-    networks:
-      - app-python
+    depends_on:
+      - redis
 
 networks:
-  app-python:
-
-
-  
+   app-python:
