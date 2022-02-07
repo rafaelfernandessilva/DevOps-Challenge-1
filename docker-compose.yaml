@@ -4,13 +4,21 @@ services:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-      - .:/code
-      - logvolume01:/var/log
-    links:
-      - redis
+    environment:
+      - ENVIRONMENT=DEV
+       - HOST=localhost
+       - PORT=8000
+       - REDIS_PORT=6379
+       - REDIS_DB=0
+    networks:
+      - app-python
   redis:
     image: redis
-    
-volumes:
-  logvolume01: {}
+    networks:
+      - app-python
+
+networks:
+  app-python:
+
+
+  
