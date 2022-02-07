@@ -6,7 +6,7 @@ services:
     networks:
       - app-python
   web:
-    image: python-test:TAG
+    build: .
     environment:
         - ENVIRONMENT=DEV
         - HOST=redis
